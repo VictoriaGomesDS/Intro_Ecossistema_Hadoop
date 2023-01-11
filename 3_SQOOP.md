@@ -270,4 +270,10 @@ OK
 ```
 
 
+<br>
+<br>
+
+Finalizo a descrição desse script aqui. Acrescento que são minhas observações durante meu aprendizado e que ainda estou no início, então peço paciência sobre qualquer erro (= Obrigada pela compreensão :smile:
+
+Obrigada por ler até o final! :wink:
 
