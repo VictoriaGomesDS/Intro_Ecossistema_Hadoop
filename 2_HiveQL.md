@@ -214,7 +214,7 @@ OK
 |         veic.modelo          |   _c1    |
 +------------------------------+----------+--+
 | BMW 750i xDrive              | 56005.0  |
-| Infiniti Q50S 3.7 Sedan      | 34932.0  |
+| Infiniti Q50S 3.7 Sedan      | 34932.0  | 
 | Mercedes-Benz S65 AMG Coupe  | 27409.0  |
 | Tesla Model S P90D           | 23991.0  |
 | Volvo XC90 T8 Hybrid         | 52189.0  |
