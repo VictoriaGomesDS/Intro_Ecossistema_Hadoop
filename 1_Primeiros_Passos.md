@@ -100,7 +100,11 @@ Found 4 items
 
 Em seguida entro no beeline, a ferramenta para logar no Hive, e logo no Hive. Em seguida experimento os comandos para criar databases **"create database teste;"**, o comando para mostrar os databases existentes **"show databases;"** e o de dropar databases e suas tabelas **"drop database teste cascade;"**. Por fim crio o database locacao, o que mais usaremos no decorrer do curso e o host das tabelas principais.
 
+<br>
+
 > Agora, em seguida, podemos identificar como o ponteiro das instruções que inseri o indicador "beeline> " e "0: jdbc:hive2://> ".
+
+<br>
 
 ```
 [cloudera@quickstart arquivos]$ beeline
@@ -440,10 +444,12 @@ OK
 0: jdbc:hive2://> 
 ```
 
+<br>
+<br>
 
+Finalizo a descrição desse script aqui. Acrescento que são minhas observações durante meu aprendizado e que ainda estou no início, então peço paciência sobre qualquer erro (= Obrigada pela compreensão :smile:
 
-
-
+Obrigada por ler até o final! :wink:
 
 
 
