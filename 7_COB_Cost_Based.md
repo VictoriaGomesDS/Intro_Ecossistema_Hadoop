@@ -31,7 +31,7 @@ In order to set a constant number of reducers:
 23/01/09 14:41:29 [HiveServer2-Background-Pool: Thread-30]: WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
 Starting Job = job_1673303255649_0001, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1673303255649_0001/
 Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1673303255649_0001
-Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1 
 23/01/09 14:42:16 [HiveServer2-Background-Pool: Thread-30]: WARN mapreduce.Counters: Group org.apache.hadoop.mapred.Task$Counter is deprecated. Use org.apache.hadoop.mapreduce.TaskCounter instead
 2023-01-09 14:42:16,094 Stage-1 map = 0%,  reduce = 0%
 2023-01-09 14:42:49,147 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.26 sec
