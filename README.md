@@ -237,7 +237,7 @@ OK
 
 ## Considerações finais :mortar_board:
 
-Gostei muito de estudar sobre o ecossistema e, com certeza, ainda irei investir muito no ecossistema hadoop e em ferramentas adjacentes de outras empresas. 
+Gostei muito de estudar sobre o ecossistema e, com certeza, ainda irei investir muito sobre o mesmo e em ferramentas paralelas de outras empresas. 
 Foi um curso com uma didádica muito boa, mesmo que ainda bem introdutória, mas que com certeza foi uma ótima forma de me introduzir a temática.
 
 Ainda há diversas coisas que quero mudar, como: ao invés de fazer em VM fazer em um container gerado através de uma imagem da cloudera. Com certeza está nos meus planos :wink:
