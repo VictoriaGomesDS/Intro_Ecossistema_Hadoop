@@ -1,0 +1,172 @@
+# Explicando o desenvolvimento do Script "COB_Cost_Based" :pencil:
+
+Esse foi o script onde mostro um pouco da diferença do tempo de execução de scripts identicos mas com a execução das estatísticas do CBO ativadas e desativadas.
+
+<br>
+
+> Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "0: jdbc:hive2://> ".
+> O proposito aqui é mostrar a diferença no tempo de execução de dois scripts idênticos, mas com a execução das estatísticas do CBO ativadas e desativadas.
+
+<br>
+
+Primeiramente, já logada no Hive e no database locacao, faço uma query selecionando a soma total da coluna total da tabela locacao_orc. 
+Ao final podemos ver que o tempo de execução foi de **106.987 segundos** com as estatísticas **desativadas**.
+
+```
+0: jdbc:hive2://> USE locacao;
+OK
+No rows affected (1.67 seconds)
+0: jdbc:hive2://> SELECT SUM(total) FROM locacao_orc;
+Query ID = cloudera_20230109144141_a4204c0c-948e-4f12-92d7-9c877b54f4a3
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+23/01/09 14:41:29 [HiveServer2-Background-Pool: Thread-30]: WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+Starting Job = job_1673303255649_0001, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1673303255649_0001/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1673303255649_0001
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+23/01/09 14:42:16 [HiveServer2-Background-Pool: Thread-30]: WARN mapreduce.Counters: Group org.apache.hadoop.mapred.Task$Counter is deprecated. Use org.apache.hadoop.mapreduce.TaskCounter instead
+2023-01-09 14:42:16,094 Stage-1 map = 0%,  reduce = 0%
+2023-01-09 14:42:49,147 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.26 sec
+2023-01-09 14:43:03,250 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.12 sec
+MapReduce Total cumulative CPU time: 4 seconds 120 msec
+Ended Job = job_1673303255649_0001
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.12 sec   HDFS Read: 9221 HDFS Write: 9 SUCCESS
+Total MapReduce CPU Time Spent: 4 seconds 120 msec
+OK
++-----------+--+
+|    _c0    |
++-----------+--+
+| 194526.0  |
++-----------+--+
+1 row selected (106.987 seconds)
+```
+
+<br>
+<br>
+
+Então começo a atualizar as configurações necessárias para ativar o CBO, tudo a nivel de sessão. Mudo as configurações **"set hive.cbo.enable=true;"**, **"set hive.compute.query.using.stats=true;"** e **"set hive.stats.fetch.column.stats=true;"**. 
+
+```
+0: jdbc:hive2://> set hive.cbo.enable;
++-----------------------+--+
+|          set          |
++-----------------------+--+
+| hive.cbo.enable=true  |
++-----------------------+--+
+1 row selected (0.028 seconds)
+0: jdbc:hive2://> set hive.cbo.enable=true;
+No rows affected (0.01 seconds)
+0: jdbc:hive2://> set hive.compute.query.using.stats;
++---------------------------------------+--+
+|                  set                  |
++---------------------------------------+--+
+| hive.compute.query.using.stats=false  |
++---------------------------------------+--+
+1 row selected (0.022 seconds)
+0: jdbc:hive2://> set hive.compute.query.using.stats=true;
+No rows affected (0.008 seconds)
+0: jdbc:hive2://> set hive.stats.fetch.column.stats;
++--------------------------------------+--+
+|                 set                  |
++--------------------------------------+--+
+| hive.stats.fetch.column.stats=false  |
++--------------------------------------+--+
+1 row selected (0.01 seconds)
+0: jdbc:hive2://> set hive.stats.fetch.column.stats=true;
+No rows affected (0.007 seconds)
+0: jdbc:hive2://> set hive.stats.fetch.partition.stats;
++----------------------------------------+--+
+|                  set                   |
++----------------------------------------+--+
+| hive.stats.fetch.partition.stats=true  |
++----------------------------------------+--+
+1 row selected (0.008 seconds)
+```
+
+<br>
+<br>
+
+Então já posso "forçar" a execução da análise dos dados e estatísticas para "aperfeiçoar" o plano de execução do processamento dos dados.
+
+```
+0: jdbc:hive2://> ANALYZE TABLE locacao_orc COMPUTE STATISTICS;
+Query ID = cloudera_20230109144949_cdc6ac3b-e404-4b27-87de-94430b286a82
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+23/01/09 14:49:21 [HiveServer2-Background-Pool: Thread-64]: WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+Starting Job = job_1673303255649_0002, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1673303255649_0002/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1673303255649_0002
+Hadoop job information for Stage-0: number of mappers: 1; number of reducers: 0
+23/01/09 14:49:37 [HiveServer2-Background-Pool: Thread-64]: WARN mapreduce.Counters: Group org.apache.hadoop.mapred.Task$Counter is deprecated. Use org.apache.hadoop.mapreduce.TaskCounter instead
+2023-01-09 14:49:37,632 Stage-0 map = 0%,  reduce = 0%
+2023-01-09 14:49:56,238 Stage-0 map = 100%,  reduce = 0%, Cumulative CPU 1.9 sec
+MapReduce Total cumulative CPU time: 1 seconds 900 msec
+Ended Job = job_1673303255649_0002
+Table locacao.locacao_orc stats: [numFiles=1, numRows=100, totalSize=1490, rawDataSize=0]
+MapReduce Jobs Launched: 
+Stage-Stage-0: Map: 1   Cumulative CPU: 1.9 sec   HDFS Read: 4375 HDFS Write: 76 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 900 msec
+OK
+No rows affected (48.109 seconds)
+```
+
+<br>
+<br>
+
+E, agora, com o plano de processamento "re-estudado e aperfeiçoado" pelo Map Reduce, podemo executar a mesma query e ver a diferença do tempo de execução do mesmo script.
+Ao final podemos ver que o tempo de execução foi de **55.936 segundos** com o CBO **ativado**. Cerca de um desempenho de processamento 50% mais rápido. Isso vendo de forma superficial.
+
+```
+0: jdbc:hive2://> SELECT SUM(total) FROM locacao_orc;
+Query ID = cloudera_20230109145050_5114ad87-fdbe-4084-9dc1-a39f93452232
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+23/01/09 14:50:18 [HiveServer2-Background-Pool: Thread-87]: WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+Starting Job = job_1673303255649_0003, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1673303255649_0003/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1673303255649_0003
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+23/01/09 14:50:34 [HiveServer2-Background-Pool: Thread-87]: WARN mapreduce.Counters: Group org.apache.hadoop.mapred.Task$Counter is deprecated. Use org.apache.hadoop.mapreduce.TaskCounter instead
+2023-01-09 14:50:34,931 Stage-1 map = 0%,  reduce = 0%
+2023-01-09 14:50:58,863 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.13 sec
+2023-01-09 14:51:11,648 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 4.64 sec
+MapReduce Total cumulative CPU time: 4 seconds 640 msec
+Ended Job = job_1673303255649_0003
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 4.64 sec   HDFS Read: 9356 HDFS Write: 9 SUCCESS
+Total MapReduce CPU Time Spent: 4 seconds 640 msec
+OK
++-----------+--+
+|    _c0    |
++-----------+--+
+| 194526.0  |
++-----------+--+
+1 row selected (55.936 seconds)
+```
+
+
+<br>
+<br>
+
+Finalizo a descrição desse script aqui. Acrescento que são minhas observações durante meu aprendizado e que ainda estou no início, então peço paciência sobre qualquer erro (= Obrigada pela compreensão :smile:
+
+Obrigada por ler até o final! :wink:
+
+
+
+
