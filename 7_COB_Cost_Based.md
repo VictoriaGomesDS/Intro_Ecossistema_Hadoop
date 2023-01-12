@@ -5,7 +5,8 @@ Esse foi o script onde mostro um pouco da diferença do tempo de execução de s
 <br>
 
 > Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "0: jdbc:hive2://> ".
-> O proposito aqui é mostrar a diferença no tempo de execução de dois scripts idênticos, mas com a execução das estatísticas do CBO ativadas e desativadas.
+> <br>
+> O proposito aqui é **mostrar a diferença no tempo de execução de dois scripts idênticos,** mas com a execução das estatísticas do CBO ativadas e desativadas.
 
 <br>
 
