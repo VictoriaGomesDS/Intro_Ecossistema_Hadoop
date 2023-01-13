@@ -54,8 +54,7 @@ E por último pude verificar mais sobre acesso e querys com hive e impala do HUE
 | 7. **COB_Cost_Based:**      | Script mostrando a diferença do tempo de execução quando utilizamos essa técnica de otimização de consultas baseada na coleta de dados estatísticos para  aperfeiçoar o plano de execução. |
 | 8. **Hive_com_Spark:**      | Script mostrando a diferença do tempo de execução quando mudamos a engine de  processamento de dados do padrão Map Reduce para o Spark para a otimização de  consultas.                    |
 | 9. **Impala:**              | Mostrando um pouco do script de conexão e querys no Impala pelo prompt do linux.                                                                                                           |
-| 10. **HUE:**                | Mostrando um pouco da interface do HUE.                                                                                                                                                    |
-| 11. **Intro_a_Teoria:**     | Trazendo um pouco de teoria com algumas anotações que fiz durante o desenvolvimento  dos scripts.                                                                                          |
+
 
 <br>
 
