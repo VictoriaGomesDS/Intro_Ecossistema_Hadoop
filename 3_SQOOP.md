@@ -4,6 +4,45 @@ Esse foi o script onde mostro um pouco do desenvolvimento das transações de da
 
 <br>
 
+![image](https://user-images.githubusercontent.com/102270053/213726073-c9daca0e-d0e0-454f-9ec8-841cb7713cf6.png)
+
+<br>
+
+## Overview SQOOP
+
+O SQOOP é uma ferramenta do ecossistema Hadoop para transação de dados entre RDBMS, programas de administração e gerenciamento de banco de dados relacionais, e o Hadoop através do drive JDBC, um software que implementa os métodos necessários para realizar a comunicação com os bancos de dados.
+
+<br>
+
+### Principais Funções:
+- ***import*** -> importa uma única tabela da base expecífica do BD.
+- ***import-all-tables*** -> importa todas as tabelas da base expecífica do BD.
+- ***list-databases*** -> lista os bancos de dados.
+- ***list-tables*** -> lista as tabelas do banco de dados.
+
+<br>
+
+### Argumentos:
+- ***--connect*** -> argumento de conexão com o servidor do banco de dados.
+- ***--username*** -> nome do usuario do banco.
+- ***--password*** -> senha na lista de comando.
+- ***--P*** -> senha interativa.
+- ***--table*** -> importa uma tabela expecífica.
+- ***--hive-overwrite*** -> argumento que indica a instrução de sobreescrever sobre a pasta criada no hive.
+- ***--hive-database*** -> indicamos para qual banco desejamos copiar as tabelas no hive.
+- ***--create-hive-table*** -> indicamos a necessidade de criação das tabelas no hive.
+
+<br>
+
+Ainda podemos usar o Append para incluírmos novos registros, baseados em um ID.
+
+<br>
+<br>
+
+## Analise do código
+
+<br>
+
 > Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "[cloudera@quickstart ~]$".
 
 <br>
