@@ -252,8 +252,9 @@ Ainda há diversas coisas que quero mudar, como: ao invés de fazer em VM fazer 
 - https://docs.informatica.com/pt_pt/data-quality-and-governance/data-quality/10-5-1/novidades-e-mudancas--10-5-1-/parte---7--versao-10-2---10-2-hotfix-2/novidades-da-versao-10-2/big-data/funcionalidade-do-hive-para-o-mecanismo-spark.html
 - https://medium.com/@CloudEtl/como-usar-udfs-do-hive-no-spark-sql-614717ac124e
 - https://www.okera.com/blogs/bucketing-in-hive-example-with-okera/
+- https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.6.3/bk_data-access/content/query-vectorization.html
 
-***São essas que tenho registrado (=***
+***São essas que tenho registrado, além de minhas próprias anotações do curso (=***
 
 
 
