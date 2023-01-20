@@ -4,6 +4,19 @@ Esse foi o script onde mostro um pouco da comparação da diferença do tempo de
 
 <br>
 
+![image](https://user-images.githubusercontent.com/102270053/213767880-5569fdb4-d726-4f76-af29-d2ef50e2c9df.png)
+
+<br>
+
+## Overview Hive com Spark
+
+O **Spark** é, cruamente falando, uma estrutura de processamento paralelo em memória que provê processamento de Big Data de forma distribuída. Assim, sendo diferente da estrutura de processamento padrão do Hive, o Map Reduce, que provê o processamento em disco.
+
+<br>
+<br>
+
+## Analise do código
+
 > Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "0: jdbc:hive2://> ".
 > <br>
 > O proposito aqui é **mostrar a diferença no tempo de execução de dois scripts idênticos,** mas com a engine de execução Spark e Map Reduce.
