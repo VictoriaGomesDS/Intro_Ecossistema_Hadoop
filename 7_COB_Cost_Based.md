@@ -4,6 +4,19 @@ Esse foi o script onde mostro um pouco da diferença do tempo de execução de s
 
 <br>
 
+![image](https://user-images.githubusercontent.com/102270053/213744077-c27a955f-c24a-47e3-9c25-8fb0250fc906.png)
+
+<br>
+
+## Overview Cost Based
+
+O **CBO** é, cruamente falando, uma "técnica" de otimização de consultas baseadas na coleta de dados estatísticos para aperfeiçoar o plano de execução das mesmas. Mas devemos sempre tomar cuidado com o trade-off (overhead pela coleta de dados) e é necessário habilitar propriedades no Hive.
+
+<br>
+<br>
+
+## Analise do código
+
 > Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "0: jdbc:hive2://> ".
 > <br>
 > O proposito aqui é **mostrar a diferença no tempo de execução de dois scripts idênticos,** mas com a execução das estatísticas do CBO ativadas e desativadas.
