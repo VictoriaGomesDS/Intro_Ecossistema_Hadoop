@@ -1,6 +1,25 @@
 # Explicando o desenvolvimento do Script "Partition_Bucketing" :pencil:
 
-Esse é o script onde mostro um pouco do desenvolvimento do processo de particionamento.
+Esse é o script onde mostro um pouco do desenvolvimento do processo de particionamento e bucketing.
+
+<br>
+
+![image](https://user-images.githubusercontent.com/102270053/213726778-58f1408b-515c-4ed8-b23b-66206ef68d72.png)
+
+<br>
+
+## Overview Partition e Bucketing
+
+De início, é importante ressaltar que, tanto hive partition quanto hive bucketing, são técnicoas de otimização de performance de armazenamento e posterior processamento e acesso.
+
+O **particionamento** é, cruamente falando, a divisão das tabelas em partições colunares, lógicas e físicas, em sub-diretórios, com o objetivo de otimizar as consultas com querys mais específicas e otiizadas. Mas vale pontuar a atenção a possibilidade de milhares ou milhões de partições, justamente por variar de acordo com os dados.
+
+Já o **bucketing** é o conceito de dividir os dados em intervalos para dar "estrutura extra" aos dados. Este intervalo é determinado pelo valor de hash de uma ou mais colunas no conjunto de dados. Ele divide de forma balanceada os dados em partições limitadas e indicadas pelo usuário.
+
+<br>
+<br>
+
+## Analise do código
 
 <br>
 
