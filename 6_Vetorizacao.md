@@ -4,6 +4,22 @@ Esse foi o script onde mostro um pouco da diferença do tempo de execução de s
 
 <br>
 
+![image](https://user-images.githubusercontent.com/102270053/213742303-5cfeda4d-7722-435c-a7bb-e6d8d3118867.png)
+
+<br>
+<br>
+
+## Overview Vetorização
+
+A **vetorização** é, cruamente falando, uma "técnica" de otimização de processamento, onde ela busca reduzir o uso de CPU em consultas através da execução do processamento de blocos de 1.024 linhas por vez em vez de 1. Permite o processamento em batch.
+
+É utilizada em querys em arquivos ORC.
+
+<br>
+<br>
+
+## Analise do código
+
 > Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "0: jdbc:hive2://> ".
 > O proposito aqui é mostrar a diferença no tempo de execução de dois scripts idênticos, mas com a vetorização ativada e desativada.
 
