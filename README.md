@@ -8,7 +8,7 @@ Um pouco sobre meus novos conhecimentos em "SQL para Big Data: Ecossistema Hadoo
 
 ## Introdução :elephant:
 
-Nas duas ultimas duas semanas me dediquei a estudar sobre o ecossistema hadoop e diversas ferramentas. Durante o curso "SQL para Big Data: Ecossistema Hadoop com Hive e Impala", oferecido pelo instrutor Fernando Amaral na plataforma de ensino "EIA - Escola de Inteligência Artificial".
+Por mais de duas semanas me dediquei a estudar sobre o ecossistema hadoop e diversas ferramentas. Durante o curso "SQL para Big Data: Ecossistema Hadoop com Hive e Impala", oferecido pelo instrutor Fernando Amaral na plataforma de ensino "EIA - Escola de Inteligência Artificial".
 
 <br>
 
