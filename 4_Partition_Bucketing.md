@@ -97,7 +97,7 @@ Number of reduce tasks is set to 0 since there's no reduce operator
 Starting Job = job_1671629034454_0021, Tracking URL = http://quickstart.cloudera:8088/proxy/application_1671629034454_0021/
 Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1671629034454_0021
 Hadoop job information for Stage-8: number of mappers: 1; number of reducers: 0
-23/01/05 07:10:54 [HiveServer2-Background-Pool: Thread-38]: WARN mapreduce.Counters: Group org.apache.hadoop.mapred.Task$Counter is deprecated. Use org.apache.hadoop.mapreduce.TaskCounter instead
+23/01/05 07:10:54 [HiveServer2-Background-Pool: Thread-38]: WARN mapreduce.Counters: Group org.apache.hadoop.mapred.Task$Counter is deprecated. Use org.apache.hadoop.mapreduce.TaskCounter instead 
 2023-01-05 07:10:54,040 Stage-8 map = 0%,  reduce = 0%
 2023-01-05 07:11:28,545 Stage-8 map = 100%,  reduce = 0%, Cumulative CPU 7.54 sec
 MapReduce Total cumulative CPU time: 7 seconds 540 msec
