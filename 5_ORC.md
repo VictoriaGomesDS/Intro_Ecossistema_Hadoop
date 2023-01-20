@@ -4,6 +4,27 @@ Esse foi o script onde mostro um pouco do desenvolvimento de uma tabela salva co
 
 <br>
 
+![image](https://user-images.githubusercontent.com/102270053/213730420-53f770c9-8929-41e5-b8c6-02da5fa27b33.png)
+
+<br>
+
+## Overview ORC
+
+ORC, sigla de Optimized Row Columnar, nada mais é que um formato de arquivo binário colunar que melhora o desempenho de como o Hive lê, grava e processa os dados, otimizado principalmente para analise. Tendo, também, como diferêncial, sua incrível capacidade de "compressão e descompressão".
+
+Este formato de arquivo armazena coleções de dados de modelo linear em um único arquivo em formato colunar, assim permitindo o processamento paralelo de coleções de linhas em um cluster, tendo em vista que os arquivos passam a ser organizados em faixas independentes de dados.
+
+<br>
+
+> Futuramente posso falar, também, sobre arquivos Parquet.
+
+<br>
+<br>
+
+## Analise do código
+
+<br>
+
 > Podemos identificar como os comandos que inseri aquelas instruções que estão a frente do indicador "0: jdbc:hive2://> ".
 
 <br>
